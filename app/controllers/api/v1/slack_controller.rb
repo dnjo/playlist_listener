@@ -3,8 +3,7 @@ module Api::V1
     before_action :authenticate
 
     def create
-      message = strip_illegal_characters params[:text]
-      spotify_ids = MessageParser.get_spotify_ids message
+      spotify_ids = MessageParser.get_spotify_ids params[:text]
       PlaylistAdder.add spotify_ids
       head 201
     rescue => e
@@ -21,10 +20,6 @@ module Api::V1
     def authenticate
       token = PlaylistListener::Application.config.slack_token
       head :forbidden unless token == params[:token]
-    end
-
-    def strip_illegal_characters(message)
-      message.tr '<>', ''
     end
   end
 end
