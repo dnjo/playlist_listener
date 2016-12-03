@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+  playlist_listener:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    command: bundle exec rails s
+    container_name: playlist_listener
+    network_mode: bridge
+    expose:
+      - 3000
+    volumes:
+      - gems:/gems
+    environment:
+      - RAILS_ENV=production
+      - VIRTUAL_HOST=playlist-listener.dnjo.net
+      - VIRTUAL_PORT=3000
+      - SECRET_KEY_BASE=$SECRET_KEY_BASE
+      - SLACK_TOKEN=$SLACK_TOKEN
+      - SPOTIFY_CLIENT_ID=$SPOTIFY_CLIENT_ID
+      - SPOTIFY_ID=$SPOTIFY_ID
+      - SPOTIFY_PLAYLIST_ID=$SPOTIFY_PLAYLIST_ID
+      - SPOTIFY_REFRESH_TOKEN=$SPOTIFY_REFRESH_TOKEN
+      - SPOTIFY_SECRET=$SPOTIFY_SECRET
+      - SPOTIFY_TOKEN=$SPOTIFY_TOKEN
+      - BUNDLE_PATH=/gems
+
+volumes:
+  gems:

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+. ~/.env
+
+alias compose="docker-compose -p playlist_listener -f docker/docker-compose.yml"
+
+compose build
+compose stop
+compose run --rm playlist_listener bundle clean --force
+compose run --rm playlist_listener bundle install
+compose rm -f
+compose up -d
+docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
