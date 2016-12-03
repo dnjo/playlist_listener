@@ -1,9 +1,0 @@
-Started GET "/" for 172.18.0.3 at 2016-12-02 23:52:49 +0000
-Cannot render console from 192.168.99.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
-Processing by Rails::WelcomeController#index as HTML
-  Parameters: {"internal"=>true}
-  Rendering /root/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /root/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/templates/rails/welcome/index.html.erb (3.6ms)
-Completed 200 OK in 16ms (Views: 8.4ms | ActiveRecord: 0.0ms)
-
-
