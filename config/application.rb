@@ -8,8 +8,7 @@ Bundler.require(*Rails.groups)
 
 module PlaylistListener
   class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+    config.slack_token = ENV['SLACK_TOKEN']
+    config.spotify_playlist_id = ENV['SPOTIFY_PLAYLIST_ID']
   end
 end
